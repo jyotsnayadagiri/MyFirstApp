@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-harness-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-harness
+  template:
+    metadata:
+      labels:
+        app: python-harness
+    spec:
+      containers:
+      - name: flask-app
+        image: yourdockerhubusername/python-harness-demo:latest
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-harness-service
+spec:
+  selector:
+    app: python-harness
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5000
+  type: LoadBalancer
