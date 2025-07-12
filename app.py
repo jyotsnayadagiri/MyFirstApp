@@ -1,7 +1,9 @@
-from firstapi import FirstAPI
+from flask import Flask
+app = Flask(__name__)
 
-app = FirstAPI()
+@app.route('/')
+def hello():
+    return "Hello from Harness CI/CD with Python!"
 
-@app.get("/")
-def read_root():
-    return {"message": "Hello DevOps World!"}
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
