@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: yourdockerhubusername/python-harness-demo:latest
+        image: yourdockerhubusername/python-harness-dem:latest
         ports:
         - containerPort: 5000
 ---
