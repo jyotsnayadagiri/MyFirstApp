@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app-blue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-app
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: python-app
+        version: blue
+    spec:
+      containers:
+      - name: app
+        image: jyotsnayadagiri12/python-harness-dem:latest
+        ports:
+        - containerPort: 5000
