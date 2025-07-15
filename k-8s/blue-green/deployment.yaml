@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: app
-        image: yourdockerhub/python-harness-demo:latest
+        image: jyotsnayadagiri12/python-harness:latest
         ports:
         - containerPort: 5000
