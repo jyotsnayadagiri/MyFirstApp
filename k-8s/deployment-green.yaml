@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app-green
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-app
+      version: green
+  template:
+    metadata:
+      labels:
+        app: python-app
+        version: green
+    spec:
+      containers:
+      - name: app
+        image: jyotsnayadagiri12/python-harness:latest
+        ports:
+        - containerPort: 5000
